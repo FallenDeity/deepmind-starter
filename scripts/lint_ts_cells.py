@@ -18,7 +18,7 @@ def lint_code(code: str, check: bool = False) -> tuple[str, int]:
         tmp.write(code)
         tmp.flush()
 
-        args = ["eslint", tmp.name]
+        args = ["npx", "eslint", tmp.name]
         if not check:
             args.append("--fix")
         return_code = 0

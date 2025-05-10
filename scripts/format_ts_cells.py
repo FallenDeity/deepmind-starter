@@ -8,7 +8,7 @@ import sys
 def format_code(code: str) -> str:
     """Format a TypeScript code string using Prettier via subprocess."""
     result = subprocess.run(
-        ["prettier", "--parser", "typescript"],
+        ["npx", "prettier", "--parser", "typescript"],
         input=code.encode(),
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
