@@ -1,0 +1,42 @@
+project:
+  type: website
+  title: "deepmind-starter"
+  render:
+    - "docs/*.qmd"
+    - "**/*.ipynb"
+  output-dir: build
+
+toc: true
+
+website:
+  title: "Gemini Cookbook"
+  page-navigation: true
+  back-to-top-navigation: true
+  reader-mode: true
+  repo-url: https://github.com/FallenDeity/deepmind-starter
+  repo-actions: [edit, source, issue]
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        file: docs/index.qmd
+    tools:
+    - icon: github
+      menu:
+        - text: Source Code
+          href: https://github.com/FallenDeity/deepmind-starter/
+  sidebar:
+    style: "floating"
+    contents:
+      - auto: "**/*.ipynb"
+
+highlight-style: atom-one
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    respect-user-color-scheme: true
+    code-line-numbers: true
