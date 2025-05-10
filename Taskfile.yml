@@ -1,0 +1,35 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  format_notebooks:
+    desc: "Format notebooks using prettier"
+    cmds:
+      - python scripts/format_ts_cells.py .
+
+  lint_notebooks:
+    desc: "Lint notebooks using eslint"
+    cmds:
+      - python scripts/lint_ts_cells.py .
+
+  format_notebooks_check:
+    desc: "Check notebooks formatting using prettier"
+    cmds:
+      - python scripts/format_ts_cells.py . --check
+
+  lint_notebooks_check:
+    desc: "Check notebooks linting using eslint"
+    cmds:
+      - python scripts/lint_ts_cells.py . --check
+
+  format_scripts:
+    desc: "Format python scripts using black and isort"
+    cmds:
+      - black scripts
+      - isort scripts
+  lint_scripts:
+    desc: "Lint python scripts using ruff and pyright"
+    cmds:
+      - ruff check scripts
+      - pyright scripts

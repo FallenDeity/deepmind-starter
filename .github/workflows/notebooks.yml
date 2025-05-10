@@ -1,0 +1,69 @@
+name: Format & Lint Notebooks
+on:
+  push:
+    paths:
+      - "**.ipynb"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**.ipynb"
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install python dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Install node dependencies
+        run: |
+          yarn install
+
+      - name: Format notebooks
+        run: |
+          task format_notebooks_check
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install python dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Install node dependencies
+        run: |
+          yarn install
+
+      - name: Lint notebooks
+        run: |
+          task lint_notebooks_check

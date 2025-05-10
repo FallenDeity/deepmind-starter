@@ -1,0 +1,6 @@
+black
+isort
+ruff
+pyright
+pre-commit
+go-task-bin

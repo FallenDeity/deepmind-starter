@@ -1,0 +1,15 @@
+{
+  "name": "deepmind-starter",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": "https://github.com/FallenDeity/deepmind-starter",
+  "author": "FallenDeity <triyanmukherjee@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "eslint": "^9.26.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
+  }
+}
