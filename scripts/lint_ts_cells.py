@@ -110,8 +110,7 @@ def main() -> None:
 
     if any(results):
         print("Some notebooks need linting.", file=sys.stderr)
-        if args.check:
-            sys.exit(1)
+        sys.exit(1)
     else:
         print("All notebooks are linted.")
 

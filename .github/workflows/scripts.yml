@@ -9,6 +9,8 @@ on:
     paths:
       - "**.py"
 
+  workflow_dispatch:
+
 jobs:
   format:
     runs-on: ubuntu-latest

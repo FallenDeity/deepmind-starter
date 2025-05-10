@@ -33,3 +33,9 @@ tasks:
     cmds:
       - ruff check scripts
       - pyright scripts
+
+  notebooks:
+    desc: "Format & lint notebooks"
+    cmds:
+      - task format_notebooks
+      - task lint_notebooks

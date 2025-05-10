@@ -95,9 +95,8 @@ def main() -> None:
         sys.exit(1)
 
     if any(results):
-        print("Some notebooks need formatting.", file=sys.stderr)
-        if args.check:
-            sys.exit(1)
+        print("Some notebooks were formatted.", file=sys.stderr)
+        sys.exit(1)
     else:
         print("No changes made.")
 
