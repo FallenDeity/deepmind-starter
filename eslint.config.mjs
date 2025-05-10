@@ -20,6 +20,8 @@ export default tseslint.config(
 	rules: {
 		"no-constructor-return": "error",
 		"no-duplicate-imports": "error",
+		"@typescript-eslint/no-unused-vars": "off",
+		"@typescript-eslint/no-require-imports": "off",
 
 		// Suggestion rules
 		"arrow-body-style": ["error", "as-needed"],
