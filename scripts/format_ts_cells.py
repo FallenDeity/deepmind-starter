@@ -50,10 +50,8 @@ def process_notebook(path: pathlib.Path, check: bool = False) -> bool:
         print(f"No code cells found in {path}")
         return False
 
-    formatted_code_blocks = format_code(code_cells)
-    for (cell_idx, orginal), formatted in zip(
-        code_cells.items(), formatted_code_blocks
-    ):
+    formatted_blocks = format_code(code_cells)
+    for (cell_idx, orginal), formatted in zip(code_cells.items(), formatted_blocks):
         if formatted != orginal:
             if check:
                 print(diff_strings(orginal, formatted), file=sys.stderr)

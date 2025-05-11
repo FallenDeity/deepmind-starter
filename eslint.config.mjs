@@ -15,6 +15,7 @@ export default tseslint.config(
 		project: './tsconfig.json',
         projectService: true,
         tsconfigRootDir: __dirname,
+		allowDefaultProject: true,
       },
     },
 	rules: {

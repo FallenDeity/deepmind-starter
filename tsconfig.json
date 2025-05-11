@@ -4,8 +4,9 @@
     "module": "nodenext",
     "outDir": "./build",
     "esModuleInterop": true,
+    "moduleResolution": "nodenext",
     "forceConsistentCasingInFileNames": true,
     "strict": true
   },
-  "include": [".temp/**/*.ts"]
+  "include": [".temp/**/*.ts", "**/*.ts"]
 }

@@ -14,20 +14,6 @@ def execute(cmd: t.Sequence[str]) -> t.Generator[str, None, None]:
         raise subprocess.CalledProcessError(return_code, cmd)
 
 
-def execute_with_error_handling(
-    cmd: t.Sequence[str], suppress_errors: bool = False
-) -> t.Generator[str, None, int]:
-    try:
-        yield from execute(cmd)
-        return 0
-    except subprocess.CalledProcessError as e:
-        if suppress_errors:
-            print(f"Command failed with error: {e}")
-            return e.returncode
-        else:
-            raise e
-
-
 def diff_strings(a: str, b: str) -> str:
     a_lines = a.splitlines(keepends=True)
     b_lines = b.splitlines(keepends=True)
