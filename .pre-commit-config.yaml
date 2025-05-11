@@ -35,11 +35,11 @@ repos:
       - id: format_notebooks
         name: format notebooks
         pass_filenames: false
-        entry: task format_notebooks
+        entry: task format_notebooks -- --diff
         language: system
 
       - id: lint_notebooks
         name: lint notebooks
         pass_filenames: false
-        entry: task lint_notebooks
+        entry: task lint_notebooks -- --diff
         language: system

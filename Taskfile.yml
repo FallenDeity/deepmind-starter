@@ -2,11 +2,27 @@
 
 version: '3'
 
+vars:
+  NOTEBOOK_DIFF:
+    sh: git diff --cached --name-only | grep '\.ipynb$'
+
 tasks:
   format_notebooks:
     desc: "Format notebooks using prettier"
+    silent: true
     cmds:
-      - python scripts/format_ts_cells.py .
+      - |
+        if echo {{.CLI_ARGS}} | grep -q -- '--diff'; then
+          FILES={{.NOTEBOOK_DIFF}}
+          echo "Changed notebooks: $FILES"
+          if [ -z "$FILES" ]; then
+            echo "No changed notebooks to format."
+            exit 0
+          fi
+          python scripts/format_ts_cells.py $FILES
+        else
+          python scripts/format_ts_cells.py .
+        fi
 
   lint_notebooks:
     desc: "Lint notebooks using eslint"
@@ -16,7 +32,18 @@ tasks:
   format_notebooks_check:
     desc: "Check notebooks formatting using prettier"
     cmds:
-      - python scripts/format_ts_cells.py . --check
+      - |
+        if echo {{.CLI_ARGS}} | grep -q -- '--diff'; then
+          FILES={{.NOTEBOOK_DIFF}}
+          echo "Changed notebooks: $FILES"
+          if [ -z "$FILES" ]; then
+            echo "No changed notebooks to format."
+            exit 0
+          fi
+          python scripts/format_ts_cells.py $FILES --check
+        else
+          python scripts/format_ts_cells.py . --check
+        fi
 
   lint_notebooks_check:
     desc: "Check notebooks linting using eslint"

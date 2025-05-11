@@ -26,3 +26,17 @@ def execute_with_error_handling(
             return e.returncode
         else:
             raise e
+
+
+def diff_strings(a: str, b: str) -> str:
+    a_lines = a.splitlines(keepends=True)
+    b_lines = b.splitlines(keepends=True)
+    diff = []
+    for line_num, line in enumerate(a_lines):
+        if line not in b_lines:
+            diff.append(f"[{line_num + 1}] - {line}")
+    diff.append("\n")
+    for line_num, line in enumerate(b_lines):
+        if line not in a_lines:
+            diff.append(f"[{line_num + 1}] + {line}")
+    return "".join(diff).strip()
