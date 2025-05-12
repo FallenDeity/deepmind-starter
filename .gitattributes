@@ -1,0 +1,7 @@
+assets/jetpack.png filter=lfs diff=lfs merge=lfs -text
+assets/video.mp4 filter=lfs diff=lfs merge=lfs -text
+assets/2312.11805v3.pdf filter=lfs diff=lfs merge=lfs -text
+assets/2403.05530.pdf filter=lfs diff=lfs merge=lfs -text
+assets/article.pdf filter=lfs diff=lfs merge=lfs -text
+assets/audio.mp3 filter=lfs diff=lfs merge=lfs -text
+assets/chat_history.json filter=lfs diff=lfs merge=lfs -text
