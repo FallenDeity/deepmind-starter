@@ -65,6 +65,7 @@ jobs:
       - name: Install node dependencies
         run: |
           yarn install
+          npm install -g prettier
 
       - name: Format notebooks
         run: |
@@ -94,6 +95,7 @@ jobs:
       - name: Install node dependencies
         run: |
           yarn install
+          npm install -g eslint
 
       - name: Lint notebooks
         run: |
