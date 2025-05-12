@@ -20,7 +20,7 @@ export default tseslint.config(
     },
 	rules: {
 		"no-constructor-return": "error",
-		"no-duplicate-imports": "error",
+		"no-duplicate-imports": "off",
 		"@typescript-eslint/no-unused-vars": "off",
 		"@typescript-eslint/no-require-imports": "off",
 

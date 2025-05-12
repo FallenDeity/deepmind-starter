@@ -10,7 +10,7 @@ from utils import diff_strings
 def format_code(code_cells: dict[int, str]) -> list[str]:
     results = [
         subprocess.Popen(
-            ["npx", "prettier", "--parser", "typescript"],
+            ["prettier", "--parser", "typescript"],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -18,7 +18,7 @@ def format_code(code_cells: dict[int, str]) -> list[str]:
         )
         for _ in code_cells
     ]
-    formatted_code = []
+    formatted_code: list[str] = []
     for (cell_idx, code), process in zip(code_cells.items(), results):
         stdout, stderr = process.communicate(input=code)
         if process.returncode != 0:

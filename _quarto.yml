@@ -39,4 +39,4 @@ format:
       light: flatly
       dark: darkly
     respect-user-color-scheme: true
-    code-line-numbers: true
+    # code-line-numbers: true

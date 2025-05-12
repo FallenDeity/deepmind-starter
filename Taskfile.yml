@@ -4,7 +4,7 @@ version: '3'
 
 vars:
   NOTEBOOK_DIFF:
-    sh: git diff --cached --name-only | grep '\.ipynb$' || true
+    sh: git diff --cached --name-status | awk '$1 != "D" && $2 ~ /\.ipynb$/ { print $2 }' || true
 
 tasks:
   format_notebooks:
@@ -43,6 +43,7 @@ tasks:
 
   format_notebooks_check:
     desc: "Check notebooks formatting using prettier"
+    silent: true
     cmds:
       - |
         if echo {{.CLI_ARGS}} | grep -q -- '--diff'; then
@@ -59,6 +60,7 @@ tasks:
 
   lint_notebooks_check:
     desc: "Check notebooks linting using eslint"
+    silent: true
     cmds:
       - |
         if echo {{.CLI_ARGS}} | grep -q -- '--diff'; then
@@ -73,11 +75,29 @@ tasks:
           python scripts/lint_ts_cells.py . --check
         fi
 
+  compile_notebooks_check:
+    desc: "Compile notebooks to python scripts"
+    silent: true
+    cmds:
+      - |
+        if echo {{.CLI_ARGS}} | grep -q -- '--diff'; then
+          FILES={{.NOTEBOOK_DIFF}}
+          echo "Changed notebooks: $FILES"
+          if [ -z "$FILES" ]; then
+            echo "No changed notebooks to compile."
+            exit 0
+          fi
+          python scripts/compile_ts_cells.py $FILES
+        else
+          python scripts/compile_ts_cells.py .
+        fi
+
   format_scripts:
     desc: "Format python scripts using black and isort"
     cmds:
       - black scripts
       - isort scripts
+
   lint_scripts:
     desc: "Lint python scripts using ruff and pyright"
     cmds:
