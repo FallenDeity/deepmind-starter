@@ -1,6 +1,10 @@
 # deepmind-starter
 
-Currently `quickstarts/Get_Started.ipynb` has been migrated
+Currently `quickstarts/Get_Started.ipynb` has been migrated for demo
+- https://github.com/FallenDeity/deepmind-starter/blob/main/quickstarts/Get_Started.ipynb
+- https://fallendeity.github.io/deepmind-starter/quickstarts/Get_Started.html
+
+## Tooling
 
 - tslab for typescript kernel
 - tsc + eslint for typechecking and linting
