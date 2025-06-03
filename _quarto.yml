@@ -11,8 +11,10 @@ toc: true
 website:
   title: "Gemini Cookbook"
   page-navigation: true
-  back-to-top-navigation: true
   reader-mode: true
+  open-graph: true
+  favicon: "assets/docs/gemini-icon.svg"
+  site-url: https://fallendeity.github.io/deepmind-starter/
   repo-url: https://github.com/FallenDeity/deepmind-starter
   repo-actions: [edit, source, issue]
   navbar:
@@ -36,7 +38,6 @@ highlight-style: atom-one
 format:
   html:
     theme:
-      light: flatly
-      dark: darkly
+      - zephyr
     respect-user-color-scheme: true
     # code-line-numbers: true

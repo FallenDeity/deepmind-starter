@@ -16,6 +16,7 @@
   "dependencies": {
     "@google/genai": "^0.13.0",
     "dotenv": "^16.5.0",
-    "tslab": "^1.0.22"
+    "tslab": "^1.0.22",
+    "wavefile": "^11.0.0"
   }
 }
