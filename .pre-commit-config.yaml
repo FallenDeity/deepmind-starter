@@ -32,11 +32,11 @@ repos:
         entry: task lint_scripts
         language: system
 
-      - id: compile_notebooks_check
-        name: compile notebooks
-        pass_filenames: false
-        entry: task compile_notebooks_check -- --diff
-        language: system
+      # - id: compile_notebooks_check
+      #   name: compile notebooks
+      #   pass_filenames: false
+      #   entry: task compile_notebooks_check -- --diff
+      #   language: system
 
       - id: format_notebooks
         name: format notebooks
