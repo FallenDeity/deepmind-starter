@@ -1,9 +1,6 @@
 project:
   type: website
   title: "deepmind-starter"
-  render:
-    - "docs/*.qmd"
-    - "**/*.ipynb"
   output-dir: build
 
 toc: true
@@ -13,8 +10,9 @@ website:
   page-navigation: true
   reader-mode: true
   open-graph: true
+  twitter-card: true
   favicon: "assets/docs/gemini-icon.svg"
-  site-url: https://fallendeity.github.io/deepmind-starter/
+  site-url: https://fallendeity.github.io/deepmind-starter
   repo-url: https://github.com/FallenDeity/deepmind-starter
   repo-actions: [edit, source, issue]
   navbar:
@@ -23,6 +21,8 @@ website:
     left:
       - text: "Home"
         file: docs/index.qmd
+      - text: "Quickstarts"
+        file: quickstarts/Get_started.ipynb
     tools:
     - icon: github
       menu:
